@@ -22,16 +22,5 @@ public class HelloController {
         return "Greetings from Spring Boot!";
     }
 
-    @GetMapping("/buckets")
-    public List<Bucket> listBuckets(){
-        final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion(Regions.DEFAULT_REGION).build();
-        List<Bucket> buckets = s3.listBuckets();
-        System.out.println("Your Amazon S3 buckets are:");
-        for (Bucket b : buckets) {
-            System.out.println("* " + b.getName());
-        }
-        return buckets;
-    }
-
 }
 
